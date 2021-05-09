@@ -10,21 +10,48 @@
   </head>
 
   <body>
-    <%= yield %>
-
+   <header>
     <% if user_signed_in? %>
+      <ul>
+        <%= link_to "Home", user_path(current_user.id) %>
+      </ul>
+
+      <ul>
+        <%= link_to "Users", users_path %>
+      </ul>
+
+      <ul>
+        <%= link_to "Books", books_path %>
+      </ul>
+
       <ul>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </ul>
-      
+
      <% else %>
+      <ul>
+        <%= link_to "Home", root_path %>
+      </ul>
+
+       <ul>
+        <%= link_to "about", abouts_path %>
+      </ul>
+
       <ul>
         <%= link_to "Sign up", new_user_registration_path %>
       </ul>
+
       <ul>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "Login", new_user_session_path %>
       </ul>
     <% end %>
+   </header>
+
+    <%= yield %>
+
+   <footer>
+     CopyRight Infratop.inc
+   </footer>
 
   </body>
 </html>

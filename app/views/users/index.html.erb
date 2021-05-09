@@ -1,0 +1,23 @@
+<%= render 'users/users', users: @users %><!--users info部分テンプレート呼び出し-->
+
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.profile_image_id %></td> <!--ユーザーアイコンを表示させたい-->
+      <td><%= user.name %></td>
+      <td><%= link_to 'Show', user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>
+  
+</div>
