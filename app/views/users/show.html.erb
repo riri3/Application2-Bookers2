@@ -1,13 +1,3 @@
-<%= render 'users/users', user: @user %><!--users info部分テンプレート呼び出し-->
-
-
 <div class="flash"><%= flash[:success] %></div>
 
-<P>Title: <%= @book.title %></P>
-<p>Body: <%= @book.body %></p>
-
-<%= link_to 'Edit', edit_book_path(@book) %>
-<%= link_to 'Destroy', book, method: :delete, "data-confirm" => "Are you sure?" %></td>
-<span>|</span>
-<%= link_to 'Back', books_path %>
-
+<h1>User info</h1>
