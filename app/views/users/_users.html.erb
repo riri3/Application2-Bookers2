@@ -1,28 +1,17 @@
 <h1>User info</h1>
+ <table class="table">
+  <tr><%= attachment_image_tag user, :profile_image, 500, 500, format: 'jpeg' %></tr>
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+   </tr>
+  </thead>
+ </table>
 
-<h5>name</h5>
-<h5>introduction</h5>
-
-<!--user情報のeditをいれる-->
-
-
-<h1>New Book</h1>
-
-<% if book.errors.any? %>
-  <%= book.errors.count %>error prohibited this book from being saved:
-  <% book.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
+<%= link_to edit_user_path(user), method: :get do %>
+<i class="btn btn-outline-secondary btn-block fas fa-user-cog"></i>
 <% end %>
-
-<%= form_with model:book, local:true do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book' %>
-
-  <% end %>

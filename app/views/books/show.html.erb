@@ -1,13 +1,25 @@
 <div class="flash"><%= flash[:success] %></div>
 
-<%= render 'users/users', book: @book %><!--users info部分テンプレート呼び出し-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/users', user: @user %><!--users info部分テンプレート呼び出し-->
+      <%= render 'books/books', book: @book %><!--new book部分テンプレート呼び出し-->
+    </div>
 
-
-<P>Title: <%= @book.title %></P>
-<p>Opinion: <%= @book.body %></p>
-
-<%= link_to 'Edit', edit_book_path(@book) %>
-<%= link_to 'Destroy', @book, method: :delete, "data-confirm" => "本当に消しますか？" %>
-<%= link_to 'Back', books_path %>
-
-
+    <div class="col-md-8 offset-md-1">
+     <h1>Book detail</h1>
+      <table class="table">
+         <thead>
+          <tr>
+            <th><%= attachment_image_tag @user, :profile_image, 500, 500, format: 'jpeg' %></th>
+            <th><%= @book.title %></th>
+            <th><%= @book.body %></th>
+            <th><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></th>
+            <th><%= link_to 'Destroy', @book, method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

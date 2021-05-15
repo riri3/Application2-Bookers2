@@ -1,4 +1,4 @@
-<%= render 'users/users', book: @book %><!--users info部分テンプレート呼び出し-->
+<%= render 'users/users', user: @user %><!--users info部分テンプレート呼び出し-->
 
 
 <h1>Books</h1>
@@ -13,9 +13,8 @@
 
 
 <% @books.each do |book| %>
-<% @profile_image.each do |profile_image| %>
   <tr>
-    <td><%=attachment_image_tag profile_image %></td>
+    <td><%= attachment_image_tag book.user, :profile_image, 100, 100, format: 'jpeg' %><br><%= book.user.name %></td>
     <td><%= book.title %></td>
     <td><%= book.body %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>

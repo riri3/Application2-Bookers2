@@ -1,3 +1,29 @@
 <div class="flash"><%= flash[:success] %></div>
 
-<h1>User info</h1>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-lg-3">
+      <%= render 'users/users', user: @user %><!--users info部分テンプレート呼び出し-->
+      <%= render 'books/books', book: @book %><!--new book部分テンプレート呼び出し-->
+    </div>
+
+    <div class="col-lg-8 offset-med-1">
+      <h1>Books</h1>
+       <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+
+      <% @books.each do |book| %>
+       <tr>
+        <td><%= link_to book.title, book_path(book) %></td>
+        <td><%= book.body %></td>
+       </tr>
+      <% end %>
+     </table>
+    </div>
+ </div>
+</div>
