@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
  resources :books
  resources :users, only: [:index, :show, :create, :edit, :update]
- get 'about' => 'abouts#index'
+ get 'home/about' => 'homes#about'
 
 end

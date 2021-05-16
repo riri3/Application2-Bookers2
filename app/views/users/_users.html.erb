@@ -1,6 +1,7 @@
 <h1>User info</h1>
  <table class="table">
-  <tr><%= attachment_image_tag user, :profile_image, 500, 500, format: 'jpeg' %></tr>
+  <tr><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></t fallback: "no_image.jpg"r>
+
   <tr>
     <th>name</th>
     <th><%= user.name %></th>
@@ -12,6 +13,6 @@
   </thead>
  </table>
 
-<%= link_to edit_user_path(user), method: :get do %>
-<i class="btn btn-outline-secondary btn-block fas fa-user-cog"></i>
-<% end %>
+  <%= link_to edit_user_path(user), method: :get do %>
+    <i class="btn btn-outline-secondary btn-block fas fa-user-cog"></i>
+  <% end %>
